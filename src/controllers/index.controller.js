@@ -1,8 +1,13 @@
 const fs = require('fs');
 
+let movies = JSON.parse(fs.readFileSync('src/data/movies.json'));
+
 module.exports = {
     home: (req, res) => {
-        res.send('Hola mundo')
+        let moviesList = movies.movies.map(movie => movie.title);
+        let moviesAlfa = moviesList.sort();
+        
+        res.render('index', {movies, moviesAlfa});
     },
     enCartelera: (req, res) => {
         res.send('En cartelera')
