@@ -13,7 +13,7 @@ app.set('views engine', 'ejs');
 app.use(morgan('dev'));
 
 // routes
-
+app.use(require('./routes/index.router'));
 
 // 404 handler
 app.use((req, res) => {
