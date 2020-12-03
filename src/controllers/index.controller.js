@@ -13,7 +13,16 @@ module.exports = {
         res.render('cartelera', {movies});
     },
     masVotadas: (req, res) => {
-        res.send('Mas votadas');
+        let moviesAverage = movies.movies.filter(movie => movie.vote_average >= 7);
+        let moviesTopTen = moviesAverage.map(movie => movie.vote_average);
+        let moviesTotal = moviesTopTen.length;
+        
+        let reduceVotes = moviesTopTen.reduce((totalVotes, vote) => totalVotes + vote);
+        let average = reduceVotes / moviesTotal;
+
+        let rounded = average.toFixed(2);
+
+        res.render('masVotadas', {moviesTotal, rounded});
     },
     sucursales: (req, res) => {
         res.send('Sucursales');
