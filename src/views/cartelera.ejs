@@ -1,0 +1,20 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container col-md-8 mt-5">
+    <div class="row">
+        <h2 class="text-success">En Cartelera</h2>
+        <div class="container mt-4">
+            <h4>Total de peliculas en cartelera: <%= movies.total_movies %></h4>
+            <div class="mt-4">
+                <% movies.movies.map(function (movie) { %>
+                    <div class="card-header">
+                        <h5><%= movie.title %></h5>
+                    </div>
+                    <div class="card-body">
+                        <p><%= movie.overview %></p>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>

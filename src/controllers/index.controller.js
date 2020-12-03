@@ -6,11 +6,11 @@ module.exports = {
     home: (req, res) => {
         let moviesList = movies.movies.map(movie => movie.title);
         let moviesAlfa = moviesList.sort();
-        
+
         res.render('index', {movies, moviesAlfa});
     },
     enCartelera: (req, res) => {
-        res.send('En cartelera')
+        res.render('cartelera', {movies});
     },
     masVotadas: (req, res) => {
         res.send('Mas votadas');
