@@ -15,14 +15,13 @@ module.exports = {
     masVotadas: (req, res) => {
         let moviesAverage = movies.movies.filter(movie => movie.vote_average >= 7);
         let moviesTopTen = moviesAverage.map(movie => movie.vote_average);
-        let moviesTotal = moviesTopTen.length;
+        let totalMovies = moviesTopTen.length;
         
         let reduceVotes = moviesTopTen.reduce((totalVotes, vote) => totalVotes + vote);
-        let average = reduceVotes / moviesTotal;
-
+        let average = reduceVotes / totalMovies;
         let rounded = average.toFixed(2);
 
-        res.render('masVotadas', {moviesTotal, rounded});
+        res.render('masVotadas', {moviesAverage, totalMovies, rounded});
     },
     sucursales: (req, res) => {
         res.send('Sucursales');

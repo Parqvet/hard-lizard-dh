@@ -2,12 +2,23 @@
 
 <div class="container col-md-8 mt-5">
     <div class="row">
-        <h2 class="text-success">Mas votadas</h2>
+        <h2 class="text-primary">Mas votadas</h2>
         <div class="container mt-4">
-            <h4 class="mb-3">Total de peliculas: <%= moviesTotal %></h4>
+            <h4 class="mb-3">Total de peliculas: <%= totalMovies %></h4>
             <h4>Rating promedio: <%= rounded %></h4>
             <div class="mt-4">
-                
+                <% moviesAverage.map(function (movie) { %>
+                    <div class="card my-3">
+                        <div class="card-header">
+                            <%= movie.title %>
+                        </div>
+                        <div class="card-body">
+                            <%= movie.vote_average %>
+                            <br><br>
+                            <%= movie.overview %>
+                        </div>
+                    </div>
+                <% }) %>
             </div>
         </div>
     </div>
