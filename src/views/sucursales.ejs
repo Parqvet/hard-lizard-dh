@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container col-md-8 mt-5">
+    <div class="row">
+        <h2 class="text-primary">Nuestras Salas</h2>
+        <div class="container mt-4">
+            <h4>Total de salas: <%= sucursales.total_theaters %></h4>
+            <div class="mt-4">
+                <% sucursales.theaters.map(function (sucursal) { %>
+                    <div class="card my-3">
+                        <div class="card-header">
+                            <%= sucursal.name %>
+                        </div>
+                        <div class="card-body">
+                            <%= sucursal.address %>
+                            <br><br>
+                            <%= sucursal.description %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
