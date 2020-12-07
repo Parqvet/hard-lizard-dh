@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container col-md-8 mt-5">
+    <div class="row">
+        <h2 class="text-primary">Preguntas Frecuentes</h2>
+        <div class="container mt-4">
+            <h4>Total de preguntas: <%= faqs.total_faqs %></h4>
+            <div class="mt-4">
+                <% faqs.faqs.map(function (faq) { %>
+                    <div class="card my-3">
+                        <div class="card-header">
+                            <%= faq.faq_title %>
+                        </div>
+                        <div class="card-body">
+                            <%= faq.faq_answer %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

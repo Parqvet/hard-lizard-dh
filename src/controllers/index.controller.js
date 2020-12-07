@@ -2,7 +2,7 @@ const fs = require('fs');
 
 let movies = JSON.parse(fs.readFileSync('src/data/movies.json'));
 let sucursales = JSON.parse(fs.readFileSync('src/data/theaters.json'));
-let contactos = JSON.parse(fs.readFileSync('src/data/faqs.json'));
+let faqs = JSON.parse(fs.readFileSync('src/data/faqs.json'));
 
 module.exports = {
     home: (req, res) => {
@@ -32,6 +32,6 @@ module.exports = {
         res.render('contactos');
     },
     faqs: (req, res) => {
-        res.send('Mas votadas');
+        res.render('faqs', {faqs});
     }
 }
